@@ -1,0 +1,544 @@
+/* Base */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #050509;
+  --bg-elevated: #101018;
+  --bg-soft: #14141f;
+  --text: #f5f5f5;
+  --text-muted: #a4a4b5;
+  --accent: #f5ae4c;
+  --accent-soft: rgba(245, 174, 76, 0.1);
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --radius-lg: 18px;
+  --radius-md: 10px;
+  --shadow-soft: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: radial-gradient(circle at top, #141427 0, #050509 50%);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* Layout */
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Header */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(18px);
+  background: linear-gradient(
+    to bottom,
+    rgba(5, 5, 9, 0.95),
+    rgba(5, 5, 9, 0.75),
+    transparent
+  );
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0.5rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.logo-mark {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 30% 20%, #ffe5b2, #f5ae4c);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #24140a;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.45);
+}
+
+.logo-text h1 {
+  margin: 0;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.logo-text p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Nav */
+
+.site-nav {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.9rem;
+}
+
+.site-nav a {
+  position: relative;
+  text-decoration: none;
+  color: var(--text-muted);
+  padding-bottom: 0.15rem;
+}
+
+.site-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 999px;
+  transition: width 0.2s ease;
+}
+
+.site-nav a:hover {
+  color: var(--text);
+}
+
+.site-nav a:hover::after,
+.site-nav a.active::after {
+  width: 100%;
+}
+
+.site-nav a.active {
+  color: var(--text);
+}
+
+/* Hero */
+
+.hero {
+  padding: 3rem 0 2.5rem;
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+  gap: 2.5rem;
+  align-items: flex-end;
+}
+
+.hero-text h2 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.9rem, 3vw, 2.3rem);
+  max-width: 22rem;
+}
+
+.hero-text p {
+  margin: 0;
+  color: var(--text-muted);
+  max-width: 32rem;
+}
+
+.hero-meta {
+  padding: 1.25rem 1.4rem;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(
+    135deg,
+    rgba(20, 20, 31, 0.95),
+    rgba(11, 11, 18, 0.98)
+  );
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-soft);
+  font-size: 0.9rem;
+}
+
+.hero-meta .location {
+  margin: 0 0 0.25rem;
+  font-weight: 500;
+}
+
+.hero-meta .availability {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+/* Projects section */
+
+.projects {
+  padding: 1rem 0 3rem;
+}
+
+.section-header {
+  margin-bottom: 1.6rem;
+}
+
+.section-header h3 {
+  margin: 0 0 0.3rem;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+}
+
+.section-header p {
+  margin: 0;
+  max-width: 34rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* Project grid */
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: linear-gradient(145deg, #161626, #101018);
+  border: 1px solid var(--border-subtle);
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.65);
+  transform: translateY(0);
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease,
+    background 0.22s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.75);
+  border-color: rgba(245, 174, 76, 0.6);
+  background: radial-gradient(circle at top left, #25253a, #0b0b14);
+}
+
+/* Thumbnail area */
+
+.project-thumbnail {
+  position: relative;
+  padding-top: 62%;
+  overflow: hidden;
+  background: radial-gradient(circle at top, #2f2f4a, #11111c);
+}
+
+/* Example: if you want to use a real image instead of gradient,
+   replace the background with this pattern:
+
+.project-thumb-elements {
+  background-image: url("../img/elements/yourHeroImage.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+*/
+
+/* Subtle variation classes (you can change these later) */
+
+.project-thumb-elements {
+  background-image: radial-gradient(circle at 15% 20%, #ffe5b2, transparent 55%),
+    radial-gradient(circle at 80% 80%, #f5ae4c, #11111c 60%);
+}
+
+.project-thumb-composition {
+  background-image: radial-gradient(circle at 15% 20%, #719350, transparent 55%),
+    radial-gradient(circle at 80% 80%, #82ee48, #11111c 60%);
+}
+
+.project-thumb-abstraction {
+  background-image: radial-gradient(circle at 15% 20%, #7bc1b5, transparent 55%),
+    radial-gradient(circle at 80% 80%, #299ca0, #11111c 60%);
+}
+
+.project-thumb-exposure {
+  background-image: radial-gradient(circle at 15% 20%, #7472d4, transparent 55%),
+    radial-gradient(circle at 80% 80%, #4532bf, #11111c 60%);
+}
+
+.project-thumb-imitation {
+  background-image: radial-gradient(circle at 15% 20%, #d8da71, transparent 55%),
+    radial-gradient(circle at 80% 80%, #b9d83c, #11111c 60%);
+}
+
+.project-thumb-looking {
+  background-image: radial-gradient(circle at 15% 20%, #e395de, transparent 55%),
+    radial-gradient(circle at 80% 80%, #943cc7, #11111c 60%);
+}
+
+.project-thumb-portraiture {
+  background-image: radial-gradient(circle at 15% 20%, #7c7c7c, transparent 55%),
+    radial-gradient(circle at 80% 80%, #2d2d2d, #11111c 60%);
+}
+
+.project-thumb-self {
+  background-image: radial-gradient(circle at 15% 20%, #e59b8c, transparent 55%),
+    radial-gradient(circle at 80% 80%, #de5e45, #11111c 60%);
+}
+
+.project-thumb-space {
+  background-image: radial-gradient(circle at 15% 20%, #ffffff, transparent 55%),
+    radial-gradient(circle at 80% 80%, #808182, #1f1f20 60%);
+}
+
+/* Project content */
+
+.project-content {
+  padding: 1.3rem 1.3rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.project-content h4 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.project-content p {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+
+.project-tag {
+  align-self: flex-start;
+  margin-top: 0.3rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+/* Footer */
+
+.site-footer {
+  border-top: 1px solid var(--border-subtle);
+  padding: 1.5rem 0 1.7rem;
+  margin-top: 1rem;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.footer-note {
+  opacity: 0.85;
+}
+
+/* Responsive tweaks */
+
+@media (max-width: 720px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .site-nav {
+    font-size: 0.85rem;
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .hero-meta {
+    margin-top: 0.25rem;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+  }
+}
+
+/* Project page header */
+
+.project-header {
+  padding: 2.8rem 0 1.5rem;
+}
+
+.project-header-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  align-items: flex-end;
+}
+
+.project-header-text h2 {
+  margin: 0 0 0.6rem;
+  font-size: clamp(1.8rem, 3vw, 2.2rem);
+}
+
+.project-kicker {
+  margin: 0 0 0.2rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--text-muted);
+}
+
+.project-description {
+  margin: 0;
+  max-width: 30rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.project-meta {
+  text-align: right;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.project-meta p {
+  margin: 0;
+}
+
+.project-breadcrumb {
+  margin-top: 0.8rem;
+  font-size: 0.85rem;
+}
+
+.project-breadcrumb a {
+  text-decoration: none;
+  color: var(--text-muted);
+}
+
+.project-breadcrumb a:hover {
+  color: var(--text);
+}
+
+/* Gallery */
+
+.project-gallery {
+  padding: 0.8rem 0 3.2rem;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.1rem;
+}
+
+.gallery-item {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: #101018;
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+}
+
+.gallery-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.25s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.03);
+}
+
+/* Responsive tweaks for project header */
+
+@media (max-width: 720px) {
+  .project-header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .project-meta {
+    text-align: left;
+  }
+}
+
+
+/* Lightbox */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(3, 3, 6, 0.9);
+  backdrop-filter: blur(8px);
+  z-index: 50;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.lightbox.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lightbox img {
+  max-width: 92vw;
+  max-height: 92vh;
+  object-fit: contain;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+}
+
+.lightbox-close {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.7rem;
+  border: none;
+  background: transparent;
+  color: #ffffff;
+  font-size: 2.1rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  text-shadow: 0 0 18px rgba(0, 0, 0, 0.8);
+}
+
+.lightbox-close:hover {
+  opacity: 0.85;
+}

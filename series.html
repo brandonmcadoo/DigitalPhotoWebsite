@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Series – Brandon McAdoo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="logo">
+                <span class="logo-mark">BM</span>
+                <div class="logo-text">
+                    <h1>Brandon McAdoo</h1>
+                    <p>Digital Photography</p>
+                </div>
+            </div>
+
+            <nav class="site-nav">
+                <a href="index.html">Portfolio</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Project header -->
+        <section class="project-header">
+            <div class="container project-header-inner">
+                <div class="project-header-text">
+                    <p class="project-kicker" id="seriesKicker">Series</p>
+                    <h2 id="seriesTitle">Series Title</h2>
+                    <p class="project-description" id="seriesDescription">
+                        Description of this series.
+                    </p>
+                </div>
+                <div class="project-meta">
+                    <p id="seriesMedium">Digital photography</p>
+                    <p id="seriesCount">0 images</p>
+                </div>
+            </div>
+
+            <div class="container project-breadcrumb">
+                <a href="index.html">← Back to portfolio</a>
+            </div>
+        </section>
+
+        <!-- Project gallery -->
+        <section class="project-gallery">
+            <div class="container">
+                <div class="gallery-grid" id="galleryGrid">
+                    <!-- JS injects figures here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox overlay -->
+    <div id="lightbox" class="lightbox">
+        <button class="lightbox-close" aria-label="Close image">&times;</button>
+        <img id="lightboxImage" src="" alt="" />
+    </div>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>© <span id="year"></span> Brandon McAdoo</p>
+            <p class="footer-note">Digital photography portfolio</p>
+        </div>
+    </footer>
+
+    <script>
+        // Data for all series
+        const seriesData = {
+            elements: {
+                kicker: "Series",
+                title: "Elements",
+                description:
+                    "A series exploring line, shape, texture, and light in everyday spaces. The images focus on how small details and simple forms can feel dramatic when they are isolated and framed with intention.",
+                medium: "Digital photography",
+                folder: "elements",
+                images: [
+                    "Color1.jpg",
+                    "Color2.jpg",
+                    "Form1.jpg",
+                    "Form2.jpg",
+                    "Light1.jpg",
+                    "Light2.jpg",
+                    "Line1.jpg",
+                    "Line2.jpg",
+                    "Shape1.jpg",
+                    "Shape2.jpg",
+                    "Space1.jpg",
+                    "Space2.jpg",
+                    "Texture1.jpg",
+                    "Texture2.jpg"
+                ]
+            },
+
+            composition: {
+                kicker: "Series",
+                title: "Composition",
+                description:
+                    "Experiments with framing, balance, and depth that guide the viewer through the frame and hold their attention.",
+                medium: "Digital photography",
+                folder: "composition",
+                images: [
+                    "Back1.jpg",
+                    "Back2.jpg",
+                    "Center1.jpg",
+                    "Center2.jpg",
+                    "Corners1.jpg",
+                    "Fill1.jpg",
+                    "Fill2.jpg",
+                    "Fore1.jpg",
+                    "Fore2.jpg",
+                    "Frame1.jpg",
+                    "Frame2.jpg",
+                    "Mid1.jpg",
+                    "Mid2.jpg",
+                    "Thirds1.jpg",
+                    "Thirds2.jpg",
+                    "Triangle1.jpg",
+                    "Triangle2.jpg"
+                ]
+            },
+
+            abstraction: {
+                kicker: "Series",
+                title: "Abstraction",
+                description:
+                    "...",
+                medium: "Digital photography",
+                folder: "abstraction",
+                images: [
+                    "AH7I4483.jpg",
+                    "AH7I4484.jpg",
+                    "AH7I4494.jpg",
+                    "AH7I4569.jpg",
+                    "AH7I4583.jpg",
+                    "AH7I4592.jpg",
+                    "AH7I4595.jpg",
+                    "AH7I4600.jpg",
+                    "AH7I4601.jpg",
+                    "AH7I4602.jpg",
+                    "AH7I4603.jpg",
+                    "AH7I4605.jpg",
+                    "AH7I4608.jpg"
+                ]
+            },
+
+            exposure: {
+                kicker: "Series",
+                title: "Exposure",
+                description:
+                    "...",
+                medium: "Digital photography",
+                folder: "exposure",
+                images: [
+                    "Image 1.jpg",
+                    "Image 1 ALTERNATE.jpg",
+                    "Image 2.jpg",
+                    "Image 3.jpg",
+                    "Image 4.jpg",
+                    "Image 5.jpg",
+                    "Image 6.jpg"
+                ]
+            },
+
+            imitation: {
+                kicker: "Series",
+                title: "Imitation",
+                description:
+                    "...",
+                medium: "Digital photography",
+                folder: "imitation",
+                images: [
+                    "AH7I4265.jpg",
+                    "AH7I4267.jpg",
+                    "AH7I4272.jpg",
+                    "AH7I4279.jpg",
+                    "Imitation 1.jpg",
+                    "Imitation 2.jpg"
+                ]
+            },
+
+            looking: {
+                kicker: "Series",
+                title: "Looking",
+                description:
+                    "...",
+                medium: "Digital photography",
+                folder: "looking",
+                images: [
+                    "Selfie1.jpeg"
+                ]
+            },
+
+            portraiture: {
+                kicker: "Series",
+                title: "Portrature & Still Life",
+                description:
+                    "...",
+                medium: "Digital photography",
+                folder: "portraiture",
+                images: [
+                    "Portrait 1.jpg",
+                    "Portrait 2.jpg",
+                    "Portrait 3.jpg",
+                    "Portrait 4.jpg",
+                    "Portrait 5.jpg",
+                    "Self 1.jpg",
+                    "Self 2.jpg",
+                    "Still 1.jpg",
+                    "Still 2.jpg",
+                    "Still 3.jpg",
+                    "Still 4.jpg"
+                ]
+            },
+
+            self: {
+                kicker: "Series",
+                title: "Self-Directed",
+                description:
+                    "...",
+                medium: "Digital photography",
+                folder: "self",
+                images: [
+                    "AH7I4652.jpg",
+                    "AH7I4654.jpg",
+                    "AH7I4746.jpg",
+                    "AH7I4781.jpg",
+                    "AH7I4974.jpg",
+                    "AH7I4983.jpg",
+                    "AH7I5060.jpg",
+                    "AH7I5193.jpg",
+                    "AH7I5318.jpg",
+                    "AH7I5383.jpg",
+                    "AH7I5391.jpg",
+                    "AH7I5579.jpg",
+                    "AH7I5714.jpg"
+                ]
+            },
+
+            space: {
+                kicker: "Series",
+                title: "Space & Time",
+                description:
+                    "...",
+                medium: "Digital photography",
+                folder: "space",
+                images: [
+                    "Image1.jpg",
+                    "Image2.jpg",
+                    "Image3.jpg",
+                    "Image4.jpg",
+                    "Image5.jpg",
+                    "Image6.jpg",
+                    "Image7.jpg",
+                    "Image8.jpg",
+                    "Image9.jpg",
+                    "Image10.jpg",
+                    "Image11.jpg",
+                    "Image12.jpg",
+                    "Image13.jpg",
+                    "Image14.jpg",
+                    "Image15.jpg"
+                ]
+            },
+
+            // add the rest of your series here...
+        };
+
+        let currentSeriesKey = null;
+        let currentIndex = 0;
+
+        function getSeriesKey() {
+            const params = new URLSearchParams(window.location.search);
+            const key = params.get("s");
+            if (key && seriesData[key]) return key;
+            return "elements"; // fallback
+        }
+
+        function renderSeries() {
+            currentSeriesKey = getSeriesKey();
+            const series = seriesData[currentSeriesKey];
+
+            // Header info
+            document.getElementById("seriesKicker").textContent = series.kicker;
+            document.getElementById("seriesTitle").textContent = series.title;
+            document.getElementById("seriesDescription").textContent =
+                series.description;
+            document.getElementById("seriesMedium").textContent = series.medium;
+            document.getElementById("seriesCount").textContent =
+                series.images.length + " images";
+
+            // Gallery
+            const galleryGrid = document.getElementById("galleryGrid");
+            galleryGrid.innerHTML = "";
+
+            series.images.forEach((file, index) => {
+                const figure = document.createElement("figure");
+                figure.className = "gallery-item";
+
+                const img = document.createElement("img");
+                img.src = "img/" + series.folder + "/" + file;
+                img.alt = "";
+                img.dataset.index = index;
+
+                img.addEventListener("click", () => {
+                    openLightbox(index);
+                });
+
+                figure.appendChild(img);
+                galleryGrid.appendChild(figure);
+            });
+        }
+
+        function openLightbox(index) {
+            currentIndex = index;
+            const series = seriesData[currentSeriesKey];
+            const file = series.images[currentIndex];
+
+            const lightbox = document.getElementById("lightbox");
+            const lightboxImage = document.getElementById("lightboxImage");
+
+            lightboxImage.src = "img/" + series.folder + "/" + file;
+            lightbox.classList.add("visible");
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById("lightbox");
+            lightbox.classList.remove("visible");
+        }
+
+        // Optional: arrow keys to move between images
+        function showNext(delta) {
+            const series = seriesData[currentSeriesKey];
+            if (!series) return;
+
+            currentIndex = (currentIndex + delta + series.images.length) % series.images.length;
+            openLightbox(currentIndex);
+        }
+
+        document.getElementById("year").textContent = new Date().getFullYear();
+        renderSeries();
+
+        // Lightbox event wiring
+        const lightboxEl = document.getElementById("lightbox");
+        const closeBtn = document.querySelector(".lightbox-close");
+
+        closeBtn.addEventListener("click", closeLightbox);
+
+        // Clicking outside image closes too
+        lightboxEl.addEventListener("click", (e) => {
+            if (e.target === lightboxEl) {
+                closeLightbox();
+            }
+        });
+
+        // Keyboard controls
+        document.addEventListener("keydown", (e) => {
+            if (!lightboxEl.classList.contains("visible")) return;
+
+            if (e.key === "Escape") {
+                closeLightbox();
+            } else if (e.key === "ArrowRight") {
+                showNext(1);
+            } else if (e.key === "ArrowLeft") {
+                showNext(-1);
+            }
+        });
+    </script>
+</body>
+
+</html>

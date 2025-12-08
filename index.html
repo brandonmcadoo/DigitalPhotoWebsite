@@ -1,47 +1,208 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>My Photography | Home</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <title>Brandon McAdoo – Photography</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="index.html">My Photography</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="index.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="projects.html">Projects</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="portfolio.html">Portfolio</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">
+        <span class="logo-mark">BM</span>
+        <div class="logo-text">
+          <h1>Brandon McAdoo</h1>
+          <p>Digital Photography</p>
+        </div>
+      </div>
 
-  <header class="text-center py-5">
-    <h1>Your Name</h1>
-    <p class="lead">Photographer • Storyteller • Creative</p>
+      <nav class="site-nav">
+        <a href="index.html" class="active">Portfolio</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <main class="container">
-    <p>
-      Welcome! I'm a photography student passionate about capturing moments
-      that tell a story. Browse my projects to see the themes I’ve explored,
-      or view my portfolio for my best work.
-    </p>
+  <main>
+    <!-- Hero / Intro -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <h2>Capturing movement, light, and real moments</h2>
+          <p>
+            I photograph action, environment, and everyday scenes with a focus on
+            energy and atmosphere. This portfolio highlights selected projects from
+            my recent work in digital photography.
+          </p>
+        </div>
+        <div class="hero-meta">
+          <p class="location">Based in New York</p>
+          <p class="availability">Available for collaborations and commissions</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects grid -->
+    <section class="projects">
+      <div class="container">
+        <div class="section-header">
+          <h3>Projects</h3>
+          <p>
+            Explore series organized by assignment and theme. Each project page
+            includes a curated selection of final images.
+          </p>
+        </div>
+
+        <div class="project-grid">
+          <!-- Project 1 -->
+          <a href="series.html?s=elements" class="project-card">
+            <div class="project-thumbnail project-thumb-elements">
+              <!-- optional background image handled in CSS or use an <img> tag -->
+            </div>
+            <div class="project-content">
+              <h4>Elements</h4>
+              <p>
+                A study of line, texture, and contrast in familiar spaces, focusing
+                on how light shapes everyday objects.
+              </p>
+              <span class="project-tag">Series</span>
+            </div>
+          </a>
+
+          <!-- Project 2 -->
+          <a href="series.html?s=composition" class="project-card">
+            <div class="project-thumbnail project-thumb-composition">
+              <!-- optional background image handled in CSS or use an <img> tag -->
+            </div>
+            <div class="project-content">
+              <h4>Composition</h4>
+              <p>
+                Experiments with framing, balance, and depth that guide the viewer
+                through the frame and hold their attention.
+              </p>
+              <span class="project-tag">Series</span>
+            </div>
+          </a>
+
+          <a href="series.html?s=abstraction" class="project-card">
+            <div class="project-thumbnail project-thumb-abstraction">
+              <!-- optional background image handled in CSS or use an <img> tag -->
+            </div>
+            <div class="project-content">
+              <h4>Abstraction</h4>
+              <p>
+                ...
+              </p>
+              <span class="project-tag">Series</span>
+            </div>
+          </a>
+
+          <a href="series.html?s=exposure" class="project-card">
+            <div class="project-thumbnail project-thumb-exposure">
+              <!-- optional background image handled in CSS or use an <img> tag -->
+            </div>
+            <div class="project-content">
+              <h4>Exposure</h4>
+              <p>
+                ...
+              </p>
+              <span class="project-tag">Series</span>
+            </div>
+          </a>
+
+          <a href="series.html?s=imitation" class="project-card">
+            <div class="project-thumbnail project-thumb-imitation">
+              <!-- optional background image handled in CSS or use an <img> tag -->
+            </div>
+            <div class="project-content">
+              <h4>Imitation</h4>
+              <p>
+                ...
+              </p>
+              <span class="project-tag">Series</span>
+            </div>
+          </a>
+
+          <a href="series.html?s=looking" class="project-card">
+            <div class="project-thumbnail project-thumb-looking">
+              <!-- optional background image handled in CSS or use an <img> tag -->
+            </div>
+            <div class="project-content">
+              <h4>Looking</h4>
+              <p>
+                ...
+              </p>
+              <span class="project-tag">Series</span>
+            </div>
+          </a>
+
+          <a href="series.html?s=portraiture" class="project-card">
+            <div class="project-thumbnail project-thumb-portraiture">
+              <!-- optional background image handled in CSS or use an <img> tag -->
+            </div>
+            <div class="project-content">
+              <h4>Portraiture & Still Life</h4>
+              <p>
+                ...
+              </p>
+              <span class="project-tag">Series</span>
+            </div>
+          </a>
+
+          <a href="series.html?s=self" class="project-card">
+            <div class="project-thumbnail project-thumb-self">
+              <!-- optional background image handled in CSS or use an <img> tag -->
+            </div>
+            <div class="project-content">
+              <h4>Self-Directed</h4>
+              <p>
+                ...
+              </p>
+              <span class="project-tag">Series</span>
+            </div>
+          </a>
+
+          <a href="series.html?s=space" class="project-card">
+            <div class="project-thumbnail project-thumb-space">
+              <!-- optional background image handled in CSS or use an <img> tag -->
+            </div>
+            <div class="project-content">
+              <h4>Space & Time</h4>
+              <p>
+                ...
+              </p>
+              <span class="project-tag">Series</span>
+            </div>
+          </a>
+
+          <!-- Add more projects as you go -->
+          <!--
+          <a href="action.html" class="project-card">
+            <div class="project-thumbnail project-thumb-action"></div>
+            <div class="project-content">
+              <h4>Action</h4>
+              <p>High energy movement and sports focused on timing and impact.</p>
+              <span class="project-tag">Series</span>
+            </div>
+          </a>
+          -->
+        </div>
+      </div>
+    </section>
   </main>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Brandon McAdoo</p>
+      <p class="footer-note">Digital photography portfolio</p>
+    </div>
+  </footer>
+
+  <script>
+    // Set current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
