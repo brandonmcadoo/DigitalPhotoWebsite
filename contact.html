@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contact – Brandon McAdoo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="logo">
+      <span class="logo-mark">BM</span>
+      <div class="logo-text">
+        <h1>Brandon McAdoo</h1>
+        <p>Digital Photography</p>
+      </div>
+    </div>
+
+    <nav class="site-nav">
+      <a href="index.html">Portfolio</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="contact-section">
+    <div class="container contact-layout">
+      <div class="contact-copy">
+        <h2>Let’s Connect</h2>
+        <p class="contact-intro">
+          If you’re interested in my work, have questions about a series, or want
+          to talk about a project, I’d be happy to hear from you. I’m open to
+          conversations about collaborations, assignments, or any opportunities
+          related to photography and visual storytelling.
+        </p>
+        <p class="contact-intro">
+          The best way to reach me is by email. I check messages regularly and
+          do my best to respond within a day.
+        </p>
+      </div>
+
+      <div class="contact-card">
+        <h3>Contact Details</h3>
+
+        <div class="contact-row">
+          <div class="contact-label">Email</div>
+          <div class="contact-value">
+            <a href="mailto:b24mcad@siena.edu">b24mcad@siena.edu</a>
+          </div>
+        </div>
+
+        <div class="contact-row">
+          <div class="contact-label">Location</div>
+          <div class="contact-value">
+            New York
+          </div>
+        </div>
+
+        <!-- Optional: add social when you're ready -->
+        <!--
+        <div class="contact-row">
+          <div class="contact-label">Instagram</div>
+          <div class="contact-value">
+            <a href="https://instagram.com/yourhandle" target="_blank" rel="noopener">
+              @yourhandle
+            </a>
+          </div>
+        </div>
+        -->
+
+        <div class="contact-cta">
+          <a href="mailto:b24mcad@siena.edu" class="contact-button">
+            Email Brandon
+          </a>
+          <p class="contact-note">
+            Feel free to include which series or type of work you’re interested in.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>© <span id="year"></span> Brandon McAdoo</p>
+    <p class="footer-note">Digital photography portfolio</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
